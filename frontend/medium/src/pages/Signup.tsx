@@ -1,7 +1,17 @@
-export const Blog = () => {
-    return (
-        <div>
-        <h1>Blog</h1>
+import { Auth } from "../components/Auth"
+import { Quote } from "../components/Quote"
+
+export const Signup = () => {
+    return <div>
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+            <div>
+                <Auth type = "signup"/>
+            </div>
+            <div className="hidded lg: block">
+                <Quote/>
+
+            </div>
+
         </div>
-    )
+    </div>
 }
