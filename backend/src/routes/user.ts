@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
 
 import { decode, sign, verify } from 'hono/jwt'
-// import { signinInput , signupInput  } from '@asbaghel23/common/';
+import { signinInput , signupInput  } from '@asbaghel23/common/dist';
 
 
 
@@ -27,11 +27,11 @@ userRouter.post('/signup', async (c)=>{
 
     // do the zod validation
 
-    // const { success } = signupInput.safeParse(body);
-    // if(!success){
-    //   c.status(400);
-    //   return c.json({ error: "Invalid Input" });
-    // }
+    const { success } = signupInput.safeParse(body);
+    if(!success){
+      c.status(400);
+      return c.json({ error: "Invalid Input" });
+    }
   
     try{
   
@@ -64,11 +64,11 @@ userRouter.post('/signup', async (c)=>{
 
     // do the zod validation
 
-    // const { success } = signinInput.safeParse(body);
-    // if(!success){
-    //   c.status(400);
-    //   return c.json({ error: "invalid input "});
-    // }
+    const { success } = signinInput.safeParse(body);
+    if(!success){
+      c.status(400);
+      return c.json({ error: "invalid input "});
+    }
 
 
     const user = await prisma.user.findUnique({
