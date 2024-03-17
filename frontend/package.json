@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@asbaghel23/common": "^1.0.1",
-    "axios": "^1.6.7"
-  }
-}
