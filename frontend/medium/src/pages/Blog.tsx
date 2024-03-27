@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 
 export const Blog = () => {
-    const { id } = useParams();
+    const { id } = useParams();   // this is a custom hook , so everytime we change id, it will get a new value, makes sense
     const {loading, blog} = useBlog({
         id: id || ""
     });
